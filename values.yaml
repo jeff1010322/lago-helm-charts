@@ -1,4 +1,4 @@
-version: "1.0.0"
+version: "1.1.1"
 
 # apiUrl: mydomain.dev
 # frontUrl: mydomain.dev
@@ -83,8 +83,13 @@ global:
     #apiHostname:
     #className:
 
+  networkPolicy:
+    enabled: false
+    egress: []
+    ingress: []
+
   #serviceAccountName:
-  
+
   # If kubectlVersion is not supplied it will be inferred using the version of the cluster that Lago is deployed on.
   #kubectlVersion: 1.29
 
@@ -95,7 +100,8 @@ front:
   resources:
     memory: 512
     cpu: "200m"
-  # podAnnotations:
+  podAnnotations: {}
+  podLabels: {}
 
 api:
   replicas: 1
@@ -114,7 +120,8 @@ api:
     cpu: "1000m"
   volumes:
     storage: "10Gi"
-  # podAnnotations:
+  podAnnotations: {}
+  podLabels: {}
 
 worker:
   replicas: 1
@@ -126,7 +133,8 @@ worker:
   resources:
     memory: 1024
     cpu: "1000m"
-  # podAnnotations:
+  podAnnotations: {}
+  podLabels: {}
 
 eventsWorker:
   replicas: 1
@@ -138,7 +146,8 @@ eventsWorker:
   resources:
     memory: 1024
     cpu: "1000m"
-  # podAnnotations:
+  podAnnotations: {}
+  podLabels: {}
 
 clock:
   replicas: 1
@@ -149,7 +158,8 @@ clock:
   resources:
     memory: 256
     cpu: "100m"
-  # podAnnotations:
+  podAnnotations: {}
+  podLabels: {}
 
 pdf:
   replicas: 1
@@ -158,4 +168,10 @@ pdf:
   resources:
     memory: 2048
     cpu: "1000m"
-  # podAnnotations
+  podAnnotations: {}
+  podLabels: {}
+
+job:
+  migrate:
+    podAnnotations: {}
+    podLabels: {}
